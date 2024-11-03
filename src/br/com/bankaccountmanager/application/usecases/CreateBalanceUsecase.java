@@ -6,7 +6,7 @@ import br.com.bankaccountmanager.domain.repositories.IBalanceRepository;
 import br.com.bankaccountmanager.domain.shared.IUsecase;
 
 public class CreateBalanceUsecase implements IUsecase<Balance, ResponseDto> {
-    private IBalanceRepository repository;
+    private final IBalanceRepository repository;
 
     public CreateBalanceUsecase(IBalanceRepository repository) {
         this.repository = repository;
