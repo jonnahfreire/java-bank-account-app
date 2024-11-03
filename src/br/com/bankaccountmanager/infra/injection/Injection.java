@@ -5,38 +5,37 @@ import br.com.bankaccountmanager.domain.repositories.IAccountRepository;
 import br.com.bankaccountmanager.domain.repositories.IBalanceRepository;
 import br.com.bankaccountmanager.domain.repositories.IClientRepository;
 import br.com.bankaccountmanager.domain.repositories.IPersonRepository;
-import br.com.bankaccountmanager.domain.shared.IRepository;
-import br.com.bankaccountmanager.domain.shared.IUsecase;
 import br.com.bankaccountmanager.infra.repositories.AccountRepository;
 import br.com.bankaccountmanager.infra.repositories.BalanceRepository;
 import br.com.bankaccountmanager.infra.repositories.ClientRepository;
 import br.com.bankaccountmanager.infra.repositories.PersonRepository;
 
 public class Injection {
-    Injector<IRepository> repositoryInjector = new Injector<>();
-    Injector<IUsecase> usecaseInjector = new Injector<>();
+    private final Injector injector = new Injector();
 
-    public Injection() {
+    public Injection() throws Exception {
         // Repositories
-        repositoryInjector.inject(new PersonRepository());
-        repositoryInjector.inject(new ClientRepository());
-        repositoryInjector.inject(new AccountRepository());
-        repositoryInjector.inject(new BalanceRepository());
+        injector.inject(IPersonRepository.class, new PersonRepository());
+        injector.inject(IClientRepository.class, new ClientRepository());
+        injector.inject(IAccountRepository.class, new AccountRepository());
+        injector.inject(IBalanceRepository.class, new BalanceRepository());
 
         // Use cases
-        usecaseInjector.inject(new CreatePersonUsecase((IPersonRepository) repositoryInjector.getInstance("PersonRepository")));
-        usecaseInjector.inject(new CreateClientUsecase((IClientRepository) repositoryInjector.getInstance("ClientRepository")));
-        usecaseInjector.inject(new CreateAccountUsecase((IAccountRepository) repositoryInjector.getInstance("AccountRepository")));
-        usecaseInjector.inject(new CreateBalanceUsecase((IBalanceRepository) repositoryInjector.getInstance("BalanceRepository")));
-        usecaseInjector.inject(new GetBalanceById((IBalanceRepository) repositoryInjector.getInstance("BalanceRepository")));
-        usecaseInjector.inject(new GetBalanceWhere((IBalanceRepository) repositoryInjector.getInstance("BalanceRepository")));
+        injector.inject(CreatePersonUsecase.class,
+                new CreatePersonUsecase(injector.getInstance(IPersonRepository.class)));
+        injector.inject(CreateClientUsecase.class,
+                new CreateClientUsecase(injector.getInstance(IClientRepository.class)));
+        injector.inject(CreateAccountUsecase.class,
+                new CreateAccountUsecase(injector.getInstance(IAccountRepository.class)));
+        injector.inject(CreateBalanceUsecase.class,
+                new CreateBalanceUsecase(injector.getInstance(IBalanceRepository.class)));
+        injector.inject(GetBalanceById.class,
+                new GetBalanceById(injector.getInstance(IBalanceRepository.class)));
+        injector.inject(GetBalanceWhere.class,
+                new GetBalanceWhere(injector.getInstance(IBalanceRepository.class)));
     }
 
-    public Injector<IRepository> getRepositoryInjector() {
-        return repositoryInjector;
-    }
-
-    public Injector<IUsecase> getUsecaseInjector() {
-        return usecaseInjector;
+    public <T> T getInstanceOf(Class<T> type) throws Exception {
+        return this.injector.getInstance(type);
     }
 }

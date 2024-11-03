@@ -1,18 +1,25 @@
 package br.com.bankaccountmanager.infra.injection;
+
 import java.util.HashMap;
+import java.util.Map;
 
-public class Injector<T> {
-    private HashMap<String, T> instances = new HashMap<>();
+public class Injector {
 
-    void inject(T instance) {
-        this.instances.put(instance.getClass().getSimpleName(), instance);
+    private final Map<Class<?>, Object> instances = new HashMap<>();
+
+    public <T> void inject(Class<T> key, T instance) {
+        instances.put(key, instance);
     }
 
-    public T getInstance(String identity) {
-        return this.instances.get(identity);
+    @SuppressWarnings("unchecked")
+    public <T> T getInstance(Class<T> identity) throws Exception {
+        T instance = (T) instances.get(identity);
+        if (instance == null)
+            throw new Exception("No binds found for: ".concat(identity.getSimpleName()));
+        return instance;
     }
 
-    void clear() {
-        this.instances.clear();
+    public void clear() {
+        instances.clear();
     }
 }
