@@ -1,14 +1,8 @@
 package br.com.bankaccountmanager.infra.injection;
 
 import br.com.bankaccountmanager.application.usecases.*;
-import br.com.bankaccountmanager.domain.repositories.IAccountRepository;
-import br.com.bankaccountmanager.domain.repositories.IBalanceRepository;
-import br.com.bankaccountmanager.domain.repositories.IClientRepository;
-import br.com.bankaccountmanager.domain.repositories.IPersonRepository;
-import br.com.bankaccountmanager.infra.repositories.AccountRepository;
-import br.com.bankaccountmanager.infra.repositories.BalanceRepository;
-import br.com.bankaccountmanager.infra.repositories.ClientRepository;
-import br.com.bankaccountmanager.infra.repositories.PersonRepository;
+import br.com.bankaccountmanager.domain.repositories.*;
+import br.com.bankaccountmanager.infra.repositories.*;
 
 public class Injection {
     private final Injector injector = new Injector();
