@@ -7,7 +7,12 @@ public class Injector {
 
     private final Map<Class<?>, Object> instances = new HashMap<>();
 
-    public <T> void inject(Class<T> key, T instance) {
+    public <T> void inject(Class<T> key, T instance) throws Exception {
+        if (key == null)
+            throw new Exception("Cannot create bind for Key of Null value");
+        if (instance == null)
+            throw new Exception("Cannot create bind for Instance of Null value");
+
         instances.put(key, instance);
     }
 
