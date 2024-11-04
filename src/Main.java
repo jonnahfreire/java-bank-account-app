@@ -5,12 +5,11 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Injection injection = new Injection();
+        Injection injection = Injection.getInstance();
         CreateBalanceUsecase createBalanceUsecase = injection.getInstanceOf(CreateBalanceUsecase.class);
         CreatePersonUsecase createPersonUsecase = injection.getInstanceOf(CreatePersonUsecase.class);
         CreateClientUsecase createClientUsecase = injection.getInstanceOf(CreateClientUsecase.class);
         CreateAccountUsecase createAccountUsecase = injection.getInstanceOf(CreateAccountUsecase.class);
-        GetBalanceWhere getBalanceWhere = injection.getInstanceOf(GetBalanceWhere.class);
 
         Person person = new Person(1, "John", "Doe", "09357212343", LocalDate.parse("2003-11-26"));
         Client client = new Client(person);
@@ -23,9 +22,8 @@ public class Main {
         createAccountUsecase.execute(account);
         createBalanceUsecase.execute(balance);
 
-        Balance b = getBalanceWhere.execute(
-                (_balance) -> account.getNumber().equals(_balance.getAccount().getNumber()));
-        System.out.println(b.toString());
-        System.out.format("Saldo: R$ %.2f", b.getValue());
+        // Testando se o singleton de Injection está funcionando
+        BalancePrinter printer = new BalancePrinter();
+        printer.print(account);
     }
 }
