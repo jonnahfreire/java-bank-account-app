@@ -1,6 +1,8 @@
 package br.com.bankaccountmanager.domain.shared;
 
+import br.com.bankaccountmanager.domain.exceptions.DomainException;
 import br.com.bankaccountmanager.domain.shared.utils.FindWhereCallback;
+import br.com.bankaccountmanager.domain.shared.utils.Return;
 
 import java.util.List;
 
@@ -8,7 +10,7 @@ public interface IRepository<T> {
     List<T> getAll();
     T findWhere(FindWhereCallback<T> callback);
 
-    void save(T entity) throws Exception;
+    Return<Void> save(T entity) throws DomainException;
 
-    void remove(T entity);
+    Return<Void> remove(T entity);
 }

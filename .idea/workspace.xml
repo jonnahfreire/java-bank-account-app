@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2f7d347-dc10-455e-af5e-acac877f9400" name="Changes" comment="">
+    <list default="true" id="d2f7d347-dc10-455e-af5e-acac877f9400" name="Changes" comment="Add DomainException | Return">
+      <change afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/domain/exceptions/DomainException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/domain/shared/utils/Return.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/injection/Injection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/injection/Injection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/injection/Injector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/injection/Injector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreateAccountUsecase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreateAccountUsecase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreateBalanceUsecase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreateBalanceUsecase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreateClientUsecase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreateClientUsecase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreatePersonUsecase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreatePersonUsecase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/domain/dtos/ResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/domain/shared/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/domain/shared/IRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/domain/shared/IUsecase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/domain/shared/IUsecase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/BalanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/BalanceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bankaccountmanager/infra/repositories/PersonRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,13 +46,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jonna/Documents/Projects/Estudos/estudos-java/projetos/first-spring-app&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,5 +64,32 @@
       <updated>1730641763785</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add DomainException | Return" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add DomainException | Return" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreatePersonUsecase.java</url>
+          <line>17</line>
+          <properties class="br.com.bankaccountmanager.application.usecases.CreatePersonUsecase" method="execute">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/br/com/bankaccountmanager/application/usecases/CreatePersonUsecase.java</url>
+          <line>18</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

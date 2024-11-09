@@ -1,11 +1,12 @@
 package br.com.bankaccountmanager.application.usecases;
 
-import br.com.bankaccountmanager.domain.dtos.ResponseDto;
 import br.com.bankaccountmanager.domain.entities.Balance;
+import br.com.bankaccountmanager.domain.exceptions.DomainException;
 import br.com.bankaccountmanager.domain.repositories.IBalanceRepository;
 import br.com.bankaccountmanager.domain.shared.IUsecase;
+import br.com.bankaccountmanager.domain.shared.utils.Return;
 
-public class CreateBalanceUsecase implements IUsecase<Balance, ResponseDto> {
+public class CreateBalanceUsecase implements IUsecase<Balance, Return<Void>> {
     private final IBalanceRepository repository;
 
     public CreateBalanceUsecase(IBalanceRepository repository) {
@@ -13,12 +14,12 @@ public class CreateBalanceUsecase implements IUsecase<Balance, ResponseDto> {
     }
 
     @Override
-    public ResponseDto execute(Balance balance) throws Exception {
+    public Return<Void> execute(Balance balance) throws DomainException {
         try {
             this.repository.save(balance);
-        } catch (Exception e) {
-            return new ResponseDto(e.getMessage(), true);
+        } catch (DomainException e) {
+            throw  new DomainException(e.getMessage(), e.getCause());
         }
-        return new ResponseDto("Saldo adicionado com sucesso!");
+        return Return.Empty();
     }
 }

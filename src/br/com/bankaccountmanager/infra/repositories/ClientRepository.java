@@ -3,6 +3,7 @@ package br.com.bankaccountmanager.infra.repositories;
 import br.com.bankaccountmanager.domain.entities.Client;
 import br.com.bankaccountmanager.domain.repositories.IClientRepository;
 import br.com.bankaccountmanager.domain.shared.utils.FindWhereCallback;
+import br.com.bankaccountmanager.domain.shared.utils.Return;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +27,14 @@ public class ClientRepository implements IClientRepository {
     }
 
     @Override
-    public void save(Client client) {
+    public Return<Void> save(Client client) {
         this.clients.add(client);
+        return Return.Empty();
     }
 
     @Override
-    public void remove(Client client) {
+    public Return<Void> remove(Client client) {
         this.clients.remove(client);
+        return Return.Empty();
     }
 }

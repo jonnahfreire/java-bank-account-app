@@ -3,6 +3,7 @@ package br.com.bankaccountmanager.infra.repositories;
 import br.com.bankaccountmanager.domain.entities.Balance;
 import br.com.bankaccountmanager.domain.repositories.IBalanceRepository;
 import br.com.bankaccountmanager.domain.shared.utils.FindWhereCallback;
+import br.com.bankaccountmanager.domain.shared.utils.Return;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +27,14 @@ public class BalanceRepository implements IBalanceRepository {
     }
 
     @Override
-    public void save(Balance balance) {
+    public Return<Void> save(Balance balance) {
         this.balanceList.add(balance);
+        return Return.Empty();
     }
 
     @Override
-    public void remove(Balance balance) {
+    public Return<Void> remove(Balance balance) {
         this.balanceList.remove(balance);
+        return Return.Empty();
     }
 }
